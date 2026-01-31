@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>anime.to | Stream</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ... (Your existing styles) ... */
+*{ margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body{ background:#0d0d12; color:#fff; }
+header{ background:#000; padding:15px; text-align:center; font-size:22px; color:#a98bff; border-bottom: 2px solid #a98bff; }
+.center{ display:flex; justify:center; padding:30px; }
+
+/* POSTER STYLES */
+.poster{ 
+    width:180px; height:260px; border-radius:10px; cursor:pointer; 
+    display:flex; align-items:flex-end; padding:10px; 
+    background:#2a2a35; transition: transform 0.3s;
+    border: 1px solid #333;
+}
+.poster:hover { transform: scale(1.05); border-color: #a98bff; }
+.jjk{ background-image:url('jjk.jpg'); background-size:cover; background-position:center; }
+.poster span{ background:rgba(0,0,0,0.8); padding:5px 8px; border-radius:5px; font-size:13px; font-weight:bold; }
+
+/* POPUP STYLES */
+.popup{ position:fixed; inset:0; background:rgba(0,0,0,0.9); display:none; align-items:center; justify-content:center; z-index: 1000; }
+.popup-content{ background:#16161d; padding:25px; width:90%; max-width:400px; border-radius:15px; position: relative; }
+.popup-content h2{ margin-bottom:15px; color: #a98bff; }
+.close{ position: absolute; top: 15px; right: 15px; cursor:pointer; color: #666; }
+
+/* SERVER BUTTONS */
+.server{
+  display:flex; justify-content: space-between; align-items: center;
+  margin-top:10px; padding:15px; background:#1f1f2a; 
+  color:#fff; text-decoration:none; border-radius:8px;
+  border-left:4px solid #a98bff; transition: 0.2s;
+}
+.server:hover{ background:#2a2a35; padding-left: 20px; }
+.server-tag { font-size: 10px; background: #a98bff; color: #000; padding: 2px 5px; border-radius: 3px; font-weight: bold; }
+</style>
+</head>
+
+<body>
+
+<header>ANIME.TO</header>
+
+<div class="center">
+  <div class="poster jjk" onclick="openPopup()">
+    <span>Jujutsu Kaisen</span>
+  </div>
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <div class="close" onclick="closePopup()">✖</div>
+
+    <h2>Jujutsu Kaisen</h2>
+    <p style="color: #888; font-size: 13px; margin-bottom: 15px;">Choose a server to start streaming:</p>
+
+    <!-- PASTE YOUR GP LINKS IN THE HREF BELOW -->
+    <a class="server" href="https://gplinks.co" target="_blank">
+      <span>GP Server 1 (Multi Quality)</span>
+      <span class="server-tag">FAST</span>
+    </a>
+
+    <a class="server" href="https://gplinks.co" target="_blank">
+      <span>GP Server 2 (1080p)</span>
+      <span class="server-tag">HD</span>
+    </a>
+
+    <a class="server" href="https://gplinks.co" target="_blank">
+      <span>Direct Mirror</span>
+      <span class="server-tag">AD-FREE</span>
+    </a>
+  </div>
+</div>
+
+<script>
+function openPopup(){
+  document.getElementById("popup").style.display="flex";
+}
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
+
+// Close popup if user clicks outside the box
+window.onclick = function(event) {
+  if (event.target == document.getElementById("popup")) {
+    closePopup();
+  }
+}
+</script>
+
+</body>
+</html>
